@@ -88,8 +88,8 @@ To see how the loop operators $L^\Box_{jklm}$ and $ L^\triangle_{jkl}$ capture t
 \label{eq:Lambda}
 \end{equation}
 where $j_x({\bf r}_1,\tau)=e^{H\tau} j_x({\bf r}_1) e^{-H\tau}$ with 
-$j_x({\bf r_1})= [H,{\bf r}_1]$ {\color{blue}(Frank: check)}. The Fourier transform of the 
-current-current correlation function in Eq.~\eqref{eq:Lambda} is famously related to the superfluid density $\rho_s$ through $\rho_s=\Lambda_{xx}(q_x\rightarrow 0,\omega_n=0)-\Lambda_{xx}(q_x=0,\omega_n=0)$ {\color{blue}(Frank: check)}. 
+$j_x({\bf r_1})= -i[H({\bf r}_1),\hat{x}]$. The Fourier transform of the 
+current-current correlation function in Eq.~\eqref{eq:Lambda} is famously\cite{Scalapino1993} related to the superfluid density $\rho_s$ through $\rho_s\propto \Lambda_{xx}(q_x\rightarrow 0,q_y=0,\omega_n=0)-\Lambda_{xx}(q_x=0,q_y\rightarrow0,\omega_n=0)$. 
 
 %$\left|G\right\rangle$ is the target ground state. 
 %Given the imaginary time evolution $j_x(r_1,\tau)=e^{H\tau} j_x(r_1) e^{-H\tau}$,
@@ -99,29 +99,31 @@ current-current correlation function in Eq.~\eqref{eq:Lambda} is famously relate
 %&=&\sum_{n\ne G} \frac{\left\langle G \left| j_x(r_1)  \left|n\left\rangle  \right\langle n\right| j_x(r_2)\right| G\right\rangle}{E_n-E_G}.
 %\label{eq:lambdaform}
 %\end{eqnarray}
-Now a rigorous relationship between the Loop operators $L^\Box_{jklm}$ and $ L^\triangle_{jkl}$  and 
-the longitudinal current response can be established for a gapped spectrum at zero temperature. {\color{blue}For a gapped hamiltonian, the Hamiltonian can be approximated by a flat band Hamiltonian  $H'=-\hat{P}$ (Frank: we still need to update this to be related to MF BdG)} with the 
+Now a rigorous relationship between the Loop operators $L^\Box_{jklm}$ and $ L^\triangle_{jkl}$  and the longitudinal current response can be established for a mean-field Bogoliubov deGenne Hamiltonian $H'=-\hat{P}$ with flat band, where
+%For a gapped Hamiltonian, the Hamiltonian can be approximated by a flat band Hamiltonian  $H'=-\hat{P}$  with the 
 %if we consider
-the projection operator
-$\hat{P}\equiv |G\rangle \langle G|$ where $|G\rangle$ is the ground state. Now for the system with the Hamiltonian $H'$ at zero temperature %, the right hand side of Eq.~\ref{eq:lambdaform} simplifies to 
+%the projection operator
+$\hat{P}\equiv |G\rangle \langle G|$ is the projection operator onto the ground state $|G\rangle$. Now for the system with the Hamiltonian $H'$ at zero temperature %, the right hand side of Eq.~\ref{eq:lambdaform} simplifies to 
 %and approximate the Hamiltonian $H'=-P$. $H'$ is adiabatically connected to $H$ in the gapped phase yet it has a simpler flat excitation spectrum $E_n-E_G=1$. Now 
 \begin{eqnarray}
     %\sum_{n\ne G} \frac{\left\langle G \left| j_x(r_1)  \left|n\left\rangle  \right\langle n\right| j_x(r_2)\right| G\right\rangle}{E_n-E_G}
    \Lambda_{xx}({\bf r}_1,{\bf r}_2;\omega_n\!=\!0) &=& \langle G|j_x({\bf r}_1)(1-\hat{P}) j_x({\bf r}_2)|G\rangle \nonumber\\
-   &=&{\rm Tr}\ \hat{P}j_x({\bf r}_1)(1-\hat{P}) j_x({\bf r}_2),
+   &=&{\rm Tr}\ \left[\hat{P}j_x({\bf r}_1)(1-\hat{P}) j_x({\bf r}_2)\right],
 \end{eqnarray}
-where we set the gap energy scale to be 1.
+%where we set the gap energy scale to be 1.
 %where we have suppressed the position arguments. 
-For a mean-field Bogoliubov deGenne hamiltonian with flat band, the trace can be evaluated to be (see Appendix for further detail)
+Inputting the expression for $j_x({\bf r})$, the trace can be evaluated to be
 %urther using the fact that current density is given by the commutator of the Hamiltonian and the position operator, we obtain
 \begin{eqnarray}
 %P j_x \left(1-P\right) j_x &=& - P \left[H',x\right] \left(1-P\right) \left[H',x\right] \nonumber\\
-\Lambda_{xx}({\bf r}_1,{\bf r}_2;\omega_n\!=\!0)&=& P_{ij}P_{jk}P_{kl}P_{li} \left(x_j-x_k\right)\left(x_l-x_i\right) \nonumber\\&-& P_{jk}P_{kl}P_{lj}\left(x_k-x_l\right)\left(x_l-x_j\right)
+& &\Lambda_{xx}({\bf r}_1,{\bf r}_2;\omega_n\!=\!0)\nonumber\\
+&=&  \sum_{r_3 r_4}P_{r_2 r_4}P_{r_4r_1}P_{r_1r_3}P_{r_3r_2}\left(x_1-x_4\right)\left(x_2-x_3\right)\nonumber \\
+& & - \sum_{r_4}P_{r_2 r_4}P_{r_4r_1}P_{r_1r_2}\left(x_1-x_4\right)\left(x_2-x_1\right)
 \label{eq:j-j}
 \end{eqnarray}
-where we have suppressed the position-space indices in the first line and implied the summations over the subscripts and trace over the spins in the last two lines. {\color{blue}(Frank: fill in the indicies that are not being summed over to make r1 and r2 explicit.)}
+where $P_{r'r}= \langle G|c^\dagger_{r'} c_r|G\rangle $. See Appendix for further details.
 
-Hence for the approximate hamiltonian $H'$, the current-current correlation function consists of appropriately weighed combination of quadrilateral loops and triangular loops of all sizes.
+Hence for the approximate Hamiltonian $H'$, the current-current correlation function consists of appropriately weighed combination of quadrilateral loops and triangular loops of all sizes.
 Since NN's can learn to form the relevant combination of the inputs we use both $L^\triangle_{jkl}$ and  $L^\Box_{ijkl}$ defined in Eqs.~\ref{eq:triangle} and \ref{eq:quad} as inputs. 
 
 Note that we use Determinent quantum Monte Carlo (DQMC) samples of the Green's functions $\widetilde{P}_{jk}|_{\alpha}$. Such data is intrinsically fluctuation-laden, yet it allows us to generate abundant samples for a given model, and at the same time reduces the computation cost and necessary Monte Carlo steps for the phase identification\cite{qlt2016, FrankMLZ2, Simon2016, Kelvin2016}. After the ANN is trained and optimized with samples from low and high temperatures with the pre-existing labels, the resulting ANN is used to identify the superconducting transport at intermediate temperatures based upon their respective DQMC samples.  
@@ -138,7 +140,8 @@ Clearly, the loop operators $L^\Box_{jklm}$ and $ L^\triangle_{jkl}$ as defined 
 
 
 \section{Models and Results}
-To test the potential of the QLT for efficiently detecting qualitative difference in the transport from imaginary time Greens function data, we consider models that host superconductivity in parts of the phase space. {\color{blue}A rigorous detection of the onset of superconductivity requires XXX within DQMC since the superconducting order parameter itself is not directly accessible in DQMC which conserves particle number by construction. One can also do YYY to detect the existence of superconducting fluctuation.}
+To test the potential of the QLT for efficiently detecting qualitative difference in the transport from imaginary time Greens function data, we consider models that host superconductivity in parts of the phase space. {\color{blue}Due to the Kosterlitz–Thouless type transition and the absence of accessible superconducting order parameter in two dimensions, a rigorous characterization within DQMC commonly relies on the calculation of the superfluid density. While a non-zero superfluid density signals the onset of diamagnetism thus the existence of superconducting fluctuation, the actual onset of the superconducting order requires the superfluid density to surpass certain value proportional to the transition temperature.}
+%A rigorous detection of the onset of superconductivity requires XXX within DQMC since the superconducting order parameter itself is not directly accessible in DQMC which conserves particle number by construction. One can also do YYY to detect the existence of superconducting fluctuation.
 
 We first consider the negative $U$ Hubbard models on a two-dimensional square lattice\cite{Scalettar1989, Scalapino1992} which is a well-studied model that can serve as a benchmark. 
 \begin{eqnarray}
@@ -210,7 +213,7 @@ In addition, our work also features thermal phase transitions between supercondu
 
 \section{Current-current correlations and quantum loop topography}
 
-In this appendix, we explore the connection between the current-current correlation and the products of two-point correlators trailing loops that are present in quantum loop topography. 
+In this appendix, we explore the connection between the zero-frequency current-current correlation in Eq. \ref{eq:Lambda} and the products of two-point correlators trailing loops that are present in quantum loop topography:
 \begin{eqnarray}
 \Lambda\left(r_1, r_2; \omega=0\right) &=& \int d\tau \left\langle j_x(r_1,\tau)j_x(r_2,0) \right\rangle  \nonumber\\\nonumber
 &=&\sum_{n\ne G} \frac{\left\langle G \left| j_x(r_1)  \left|n\left\rangle  \right\langle n\right| j_x(r_2)\right| G\right\rangle}{E_n-E_G} \\\nonumber
@@ -218,18 +221,20 @@ In this appendix, we explore the connection between the current-current correlat
 &=& \mbox{tr}\left[\hat{P} j_x(r_1) \left(1-\hat{P}\right) j_x(r_2)\right]
 \label{eq:app1}
 \end{eqnarray}
-For simplicity, starting on the third line we have been focusing on a flat-band mean-field Hamiltonian $H'=-\hat P$, $\hat P=\sum_{ij}P_{ij}c^\dagger_i c_j=\sum_{\mu}c^\dagger_\mu c_\mu$. $\left|\mu\right\rangle$ ($\left|\nu\right\rangle$) are the single-particle states that are occupied (empty) in the ground state $\left|G\right\rangle$. It follows that $\epsilon_\mu=-1$, $\epsilon_\nu=0$, and $1-\hat P=\sum_{\nu}c^\dagger_\nu c_\nu=\sum_{\nu}\left|\nu\right\rangle\left\langle\nu\right|$. The $\hat{x}$ direction current operator at position $r$ is $j_x(r)=-i\left[H'(r),\hat x\right]=\sum_{r'}iP_{r'r}c_{r'}^\dagger c_{r}\left(x-x'\right)+\mbox{h.c.}$. Putting into Eq.\ref{eq:app1}, we have 
+For simplicity, starting on the third line we have been focusing on a flat-band mean-field Hamiltonian $H'=-\hat P$, $\hat P=\sum_{ij}P_{ij}c^\dagger_i c_j=\sum_{\mu}c^\dagger_\mu c_\mu$. $\left|\mu\right\rangle$ ($\left|\nu\right\rangle$) are the single-particle states that are occupied (empty) in the ground state $\left|G\right\rangle$ of $H'$. It follows that $\epsilon_\mu=-1$, $\epsilon_\nu=0$, and $1-\hat P=\sum_{\nu}c^\dagger_\nu c_\nu=\sum_{\nu}\left|\nu\right\rangle\left\langle\nu\right|$. The $\hat{x}$ direction current operator at position $r$ is $j_x(r)=-i\left[H'(r),\hat x\right]=\sum_{r'}iP_{r'r}c_{r'}^\dagger c_{r}\left(x-x'\right)+\mbox{h.c.}$. Putting it into Eq.\ref{eq:app1}, we have :
 \begin{eqnarray}
-& &\mbox{tr}\left[\hat{P} j_x(J) \left(1-\hat{P}\right) j_x(L)\right] \nonumber \\
-&=& - \sum_{IKI'J'K'L'}P_{I'I}P_{J'J}(\delta_{K'K}-P_{K'K})P_{L'L}\left(x_J-x'_J\right)\left(x_L-x'_L\right)\nonumber \\& &\times \left\langle0\left|c_{r_4} \right|0\right\rangle 
+& &\mbox{tr}\left[\hat{P} j_x(r_1) \left(1-\hat{P}\right) j_x(r_2)\right] \nonumber \\
+&=&  \sum_{r_3 r_4 r'_1 r'_2r'_3r'_4}P_{r'_4 r_4}P_{r'_1r_1}\left(P_{r'_3r_3}-\delta_{r'_3r_3}\right)P_{r'_2r_2}\left(x_1-x'_1\right)\left(x_2-x'_2\right)\nonumber \\& &\times \left\langle0\left|c_{r_4}c^\dagger_{r'_1} c_{r_1} c^\dagger_{r'_3} c_{r_3} c^\dagger_{r'_2} c_{r_2} c^\dagger_{r'_4}\right|0\right\rangle\nonumber \\
+&=&  \sum_{r_3 r_4}P_{r_2 r_4}P_{r_4r_1}P_{r_1r_3}P_{r_3r_2}\left(x_1-x_4\right)\left(x_2-x_3\right)\nonumber \\
+& & - \sum_{r_4}P_{r_2 r_4}P_{r_4r_1}P_{r_1r_2}\left(x_1-x_4\right)\left(x_2-x_1\right)
+\label{eq:app2}
 \end{eqnarray}
-
-
-Correspondingly, the expectation value of the two-point correlator is given by:
+On the other hand, the expectation value of the two-point correlator is given by:
 \begin{eqnarray}
-\left\langle c_{J}^{\dagger}c_{I}\right\rangle & = & \sum_{\mu}\left\langle \mu|c_{J}^{\dagger}c_{I}|\mu\right\rangle \nonumber\\
- & = & \sum_{I'J'}P_{I'J'}\left\langle 0|c_{J'}c_{J}^{\dagger}c_{I}c_{I'}^{\dagger}|0\right\rangle  =P_{IJ}
+\left\langle c_{r'}^{\dagger}c_{r}\right\rangle & = & \sum_{\mu}\left\langle \mu|c_{r'}^{\dagger}c_{r}|\mu\right\rangle \nonumber\\
+ & = & \sum_{\tilde{r}' \tilde{r}}P_{\tilde{r}\tilde{r}'}\left\langle 0|c_{\tilde{r}'}c_{r'}^{\dagger}c_{r}c_{\tilde{r}}^{\dagger}|0\right\rangle  =P_{rr'}
 \end{eqnarray}
+Therefore, Eq. \ref{eq:app2} can be expressed in terms of products of two-point correlators trailing triangles and quadrilaterals. 
 
 
 %This is Mean field theory discussion. No longer necessary. 
