@@ -28,19 +28,23 @@ $^{1}$Department of Physics, Cornell University, Ithaca, New York 14853, USA}%
 \begin{abstract}
 Quantum many-fermion systems give rise to diverse states of matter that often reveal themselves in distinctive transport properties. While some of these systems can be captured by microscopic models accessible to numerical exact quantum Monte Carlo simulations, it nevertheless remains challenging to  numerically access their transport properties. 
 Here we demonstrate that quantum loop topography (QLT) can be used to directly probe transport by machine learning current-current correlations in imaginary time.
-We showcase this approach by studying the emergence of superconducting fluctuations in the negative-U Hubbard model and an effective action model for an antiferromagnetic quantum critical point. For both models
-we find that the QLT approach detects a change in transport in very good agreement with their established phase diagrams.
+We showcase this approach by studying the emergence of superconducting fluctuations in the negative-U Hubbard model and  
+an effective action model for a metallic %n antiferromagnetic
+quantum critical point. 
+For both models we find that the QLT approach detects a change in transport in very good agreement with their established 
+phase diagrams.
 %derived from conventional numerical estimators.
 These proof-of-principle calculations combined with the numerical efficiency of the QLT approach point a way to identify elusive
-transport phenomena such as non-Fermi liquids using machine learning
-algorithms.
+transport phenomena such as non-Fermi liquids using machine learning algorithms.
 
 %One of the major challenges in condensed matter physics is to process the `big data', being it the Hilbert space of the quantum many-body states or the data generated from modern-day experiments and large-scale computations. Recently, machine learning techniques have been introduced into condensed matter physics research and exhibit great strengths in applications handling such `big data'. Here we show that via supervised machine learning, artificial neural networks can successfully identify the emergent superconductivity with different pairing symmetries and from various interacting fermion models. In particular, we focus on the mere samples of the two-point correlations, which are readily available in Determinant Quantum Monte Carlo calculations and avoid the conventional yet complex procedures for the superfluid density. Instead, we show that with either a quantum loop topography feature-selection layer or deep convolutional layers, the empowered neural networks achieve trustworthy performance based upon the raw data of correlations, therefore greatly reduce the computational cost.
 \end{abstract}
 
 \maketitle
 
-\section{Introduction}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\section{Introduction}
 
 Key challenge with studying quantum many-fermion systems has to do with the fact that the defining macroscopic characteristic of a state is often its transport property. Unfortunately, 
 rigorous information on transport one can gain from Monte Carlo simulations is limited because Monte Carlo simulations yield imaginary time data, and the analytic continuation of imaginary time data to real time is numerically ill posed. Nevertheless, the imaginary time current-current correlation function must contain the nugget of the key information regarding transport. Indeed 
@@ -58,6 +62,8 @@ In this paper, we adapt the QLT first introduced in Ref.~\cite{qlt2016} for the 
 %In this paper,  we use supervised machine learning for purpose of detecting emergent superconductivity from interacting fermionic systems.
 Here we consider emergent $s$-wave superconductivity in the negative $U$ Hubbard model\cite{Scalettar1989, Scalapino1992} and the emergent $d$-wave superconductivity in models where the Fermi surfaces are coupled to a $\vec Q=(\pi, \pi)$ spin density wave (SDW) order parameter\cite{Erez2016}. Both models can be simulated via Determinant Quantum Monte Carlo (DQMC) methods without the sign problem. %Instead of calculating the superfluid density, we focus on the two-point correlations as our raw data source, which are conveniently available in DQMC calculations. Two artificial neural network (ANN) architectures are applied in parallel: a deep neural network with convolutional layers\cite{Simon2016}, and a shallow neural network with a feature selection layer dubbed as quantum loop topography\cite{qlt2016, FrankMLZ2}, focusing on correlations trailing three-point and four-point loops at the shortest length scales. Both architectures have their respective merits: while the deep convolutional neural network is powerful enough to minimize our human intervention, the introduction of quantum loop topography as humanly inspired by the physical relevance of the information - the current-current correlations in this case - helps to reduce the complexity of the ANN and the corresponding efforts for supervised machine learning. We train our artificial neural networks with data deep in the superconducting phases at low temperature and normal phase at high temperature. Benchmarks suggest that in both scenarios we can achieve good performance with a small number of uncorrelated Monte Carlo samples, therefore largely reduce the computational cost of the conventional algorithm. 
 %Although our examples are two-dimensional models, it is straightforward to generalize the methods to other dimensions. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{quantum loop topography for longitudinal transport}
 The Quantum loop topography (QLT) is a preprocessing step for machine learning quantum many-body models~\cite{qlt2016} that selects and organizes the simulation data with the physical response characteristic of the target phase in mind. Targeting the longitudinal transport,  we build a vector at each site $j$ consisting of all small loops with three vertices, $L^\triangle_{jkl}$ and with four vertices, $L^\Box_{jklm}$ including the site $j$. The loops represent
@@ -143,6 +149,7 @@ Clearly, the loop operators $L^\Box_{jklm}$ and $ L^\triangle_{jkl}$ as defined 
 %Since NN's can learn to form the effective combination of the inputs, Eq.~\ref{eq:j-j} suggests that use of both $L^\triangle_{jkl}$ and  $L^\Box_{ijkl}$ defined in Eqs.~\ref{eq:triangle} and \ref{eq:quad} as inputs could enable ANN's to probe transport properties in imaginary time data. Throughout the rest of this paper we focus on only the loops with the smallest length scales, since the correlation $P$ decays over distances. For the rest of the paper, we only include the quantum loops $L$ and $L'$ whose width is equal or below a cut-off scale $d_c=2$ unless noted otherwise.
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 
@@ -205,11 +212,15 @@ The neural outputs for a transition between a normal metal and a $d$-wave superc
 
 The eligibility of both QLT and convolutional neural network can also be extended to scenarios where the superconductivity has $d$-wave pairing symmetry, such as the effective action model in Eq. \ref{eq:afmetal}. Again, we perform parallel studies using both the CNN or the QLT architectures. Both ANNs are trained with superconducting samples at low temperature $\beta=30$ and normal metallic samples at high temperature $\beta=5$. The results of supervised machine learning for the interpolating temperatures are illustrated in Fig. \ref{fig:afmetal}. In comparison, superfluid density measurement suggested critical temperature $T_c\simeq 0.08$ for the superconductor-metal transition\cite{Erez2016}.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \section{Conclusions and Discussions} The application of machine learning with neural networks can be generalized and adapted to generic superconductor models and numerical ansatz without limitations to lattice geometry, translation symmetries, boundary conditions, dimensions, etc. We show that the 'big data' issue can be resolved by either resorting to powerful deep learning mechanisms such as the CNN, or introducing feature-selection interface such as QLT. Our studies further embrace the power of machine learning and open its door to other condensed matter systems.
 
 The consistency between the results from the CNN and QLT-assisted simple ANN is an interesting example on how we can balance our cost on human intelligence and artificial intelligence. We note that the QLT samples are obtained from the raw samples of the Green's functions, so the latter is equally inclusive if not more; on the other hand, QLT's pre-processing of the data involves non-linear chain products of the raw Green's function data, therefore, if the QLT data is indeed sufficient for determining the emergent superconductivity, starting from the raw Green's functions may invoke extra redundancy and logical steps. This requirement can be compensated by powerful deep neural networks such as the CNN. We advise choosing between deeper neural network and feature-selection layers depending on the amount theoretical understanding and intuition on the target systems as well as computational resources. 
 
 In addition, our work also features thermal phase transitions between superconductors and normal metals in two dimensions of Kosterlitz-Thouless character where machine learning ansatz saw substantial subtlety and difficulty previously\cite{Anna2018}. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 {\it Acknowledgement --} We acknowledge insightful discussions with Yi-Ting Hsu. The Cologne group acknowledges partial support
 from the DFG collaborative research center TR 183 (project B01). The numerical simulations were performed on the JUWELS cluster 
