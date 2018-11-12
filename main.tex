@@ -59,10 +59,20 @@ e.g.~in the vicinity of a quantum phase transition \cite{Hertz1976,Millis1993}, 
 On the numerical side, the many-fermion has long proved to resist a solution via quantum Monte Carlo techniques
 due to the occurrence of the so-called sign problem that is closely linked to the complex sign structure of the 
 many-fermion wavefunction (another consequence of the existence of a multitude of gapless modes).
-Another level of complexity comes from the fact that the key features revealing the nature of a collective many-fermion state 
+To make things worse the key features revealing the nature of a collective many-fermion state 
 (such as superconductors, strange metals, or non-Fermi liquids) are often their transport properties.   
 
-In this manuscript, we build on recent progress ....
+In this manuscript, we outline a numerical scheme that combines elements from machine learning and quantum Monte Carlo (QMC)
+techniques to allow for a direct quantitative probe of transport properties in interacting many-electron systems. 
+To do so, we build on progress on two different fronts advancing the numerical description of such systems.
+First, it has been realized that quantum criticality in itinerant fermion systems can be studied in a numerically exact manner 
+in sign-problem free models 
+\cite{Berg2012,Schattner2016a,Gerlach2017,Xu2017a,Lederer2017,Li2016,Li2017,Jiang2017,Berg2018}
+built around the effective action for multiple fermion bands. 
+However, to infer transport properties one faces the problem that QMC simulations intrinsically yield imaginary time data, 
+and the analytic continuation of imaginary time data to real time is numerically ill posed, yielding no controlled framework
+to probe transport properties. 
+Instead, we employ a ...
 
 
 \vskip 2cm
