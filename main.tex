@@ -52,20 +52,24 @@ or the observation of superconductivity in many-electron systems.
 But while the microscopic physics giving rise to these phenomena are well understood for systems 
 of many interacting bosonic or spin degrees of freedom, 
 either via controlled analytical calculations for minimal model Hamiltonians or via numerical simulations
-providing quantitative guidance, the fundamental understanding of quantum many-fermion systems
-has proved to be more elusive. The distinct feature leading to this seemingly unsurmountable complication
-arguably is the presence of a slew of gapless modes near the Fermi energy in these systems. 
-On the analytical side, the concurrent treatment of these modes and their interactions with other (bosonic) soft modes,
+providing even quantitative guidance, the fundamental understanding of quantum many-fermion systems
+has proved to be more elusive. The distinct feature leading to a seemingly unsurmountable complication
+for these systems arguably is the profusion of gapless modes near the Fermi energy. 
+On the analytical side, the concurrent treatment of these gapless modes and their interactions with other (bosonic) soft modes,
 e.g.~in the vicinity of a quantum phase transition \cite{Hertz1976,Millis1993}, has remained a formidable challenge.
-On the numerical side, the many-fermion has long proved to resist a solution via quantum Monte Carlo techniques
+On the numerical side, many-fermion systems have long proved to resist a solution via quantum Monte Carlo techniques
 due to the occurrence of the so-called sign problem that is closely linked to the complex sign structure of the 
 many-fermion wavefunction (another consequence of the existence of a multitude of gapless modes).
-To make things worse the key features revealing the nature of a collective many-fermion state 
-(such as superconductors, strange metals, or non-Fermi liquids) are often their transport properties.   
+Adding to this complexity, the key features revealing the nature of collective many-fermion states 
+(such as superconductors, strange metals, or non-Fermi liquids) are often their transport properties
+that are notoriously difficult to calculate.   
 
-In this manuscript, we outline a numerical scheme that combines elements from machine learning and quantum Monte Carlo (QMC)
-techniques to allow for a direct quantitative probe of transport properties in interacting many-electron systems. 
-To do so, we build on progress on two different fronts advancing the numerical description of such systems.
+
+It is the purpose of this manuscript to outline a numerical scheme that 
+allows for a direct quantitative probe of transport properties in interacting many-electron systems
+by combining elements from machine learning and quantum Monte Carlo (QMC)
+techniques. 
+To do so, we build on progress on two separate fronts advancing the numerical description of many-fermion systems.
 First, it has been realized that quantum criticality in itinerant fermion systems can be studied in a numerically exact manner 
 in sign-problem free models 
 \cite{Berg2012,Schattner2016a,Gerlach2017,Xu2017a,Lederer2017,Li2016,Li2017,Jiang2017,Berg2018}
@@ -73,16 +77,12 @@ built around the effective action for multiple fermion bands.
 However, to infer transport properties one faces the problem that QMC simulations intrinsically yield imaginary time data, 
 and the analytic continuation of imaginary time data to real time is numerically ill posed, yielding no controlled framework
 to probe transport properties. 
-Instead, we resort to the recent development of machine learning approaches in quantum statistical physics and demonstrate that quantum loop topography (QLT), a numerical scheme initially designed to identify the topological Hall response of a system~\cite{qlt2016}, can in fact be used to measure longitudinal transport properties of itinerant many-fermion systems.
-In particular, we show that the QLT approach can be adapted to extract the essential features of the imaginary time current-current correlation function, readily available from QMC simulations. One principle example is the study of superconductivity, whose onset can be tracked e.g. via the superfluid density that can be rigorously obtained starting from current-current correlation function \cite{Scalapino1992,Scalapino1993}. Here we show that the QLT+QMC approach can quantitatively match existing results for
-the superconducting transition for a number of microscopic model systems, i.e. the machine learning approach succeeds 
-in identifying the essential features of this transition without any prior knowledge (e.g. about the explicit calculation of the 
-superfluid density). 
+Instead, we resort to the recent development of machine learning approaches in quantum statistical physics and demonstrate that quantum loop topography (QLT), a numerical scheme initially designed to identify the topological Hall response of a system~\cite{qlt2016}, can in fact be used to measure {\em longitudinal} transport properties of itinerant many-fermion systems.
+In particular, we show that the QLT approach can be adapted to extract the essential features from the imaginary time current-current correlation function, readily available from QMC simulations. One principle example which we focus on is the study of superconductivity, whose onset can, in principle, be tracked e.g. via the superfluid density that can be rigorously obtained starting from current-current correlation function \cite{Scalapino1992,Scalapino1993}. 
+Here we show that the QLT+QMC approach succeeds in identifying the essential features of this transition without any prior knowledge (e.g. about the explicit calculation of the superfluid density)
+and quantitatively matches existing results for the superconducting transition for a number of microscopic model systems,
+but at considerably lower computational cost.
 
-% and thereby identify e.g. the onset of superconductivity. 
-%This extends previous numerical calculations of a similar spirit, where the superfluid density has been rigorously obtained to signal superconductivity \cite{Scalapino1992,Scalapino1993} starting from current-current correlation function.
-
-%\vskip 2cm
 
 
 
@@ -118,9 +118,16 @@ superfluid density).
 
 %\section{Quantum loop topography for longitudinal transport}
 \noindent{\em QLT for longitudinal transport.-- }
+The recent foray of applying machine learning techniques to quantum many-body systems can roughly be divided into two classes of general approaches: 
+(i) the representation of many-body wavefunctions using restricted Boltzmann machines allowing for a new class of variational algorithms to efficiently find ground states of quantum many-body systems
+\cite{Carleo2016, Deng2016, Deng2017, Glasser2018, Torlai2018, Gaoxun2017}, and 
+(ii) the use of artificial neural networks, typically combined with preprocessing steps, to allow for quantum state recognition 
+\cite{Melko20161, Nieuwenburg2017, LeiWang2016, Simon2016, Kelvin2016, Ohtsuki2016, Ohtsuki2017, Titus2017, qlt2016, FrankMLZ2, Broecker2017, ZhaiHui2017, Iakovlev2018, PollmannML2018, Anna2018}.
 %
-The Quantum loop topography (QLT) is a preprocessing step for machine learning quantum many-body models~\cite{qlt2016} that selects and organizes the simulation data with the physical response characteristic of the target phase in mind. Targeting the longitudinal transport,  we build a vector at each site $j$ consisting of all small loops with three vertices, $L^\triangle_{jkl}$ and with four vertices, $L^\Box_{jklm}$ including the site $j$. The loops represent
-chained products of bi-linear operators  $c_i^\dagger c_j$ evaluated with a single Monte Carlo sample $\alpha$, $\widetilde{P}_{jk}|_{\alpha}$:
+In the latter category, the QLT approach~\cite{qlt2016} stands out as a preprocessing step that selects and organizes the simulation data with the {\em physical response} characteristic of the target phase in mind (and thereby distinguishes itself from e.g.~the application of convolutional neural networks whose motivation is primarily rooted in image recognition techniques). 
+{\color{red}(ST: Eun-Ah, please add a few words on how QLT worked for topological response.)}
+Targeting the longitudinal transport,  we build a vector at each site $j$ consisting of all small loops with three vertices, $L^\triangle_{jkl}$ and with four vertices, $L^\Box_{jklm}$ including the site $j$. The loops represent
+chained products of bi-linear operators  $c_i^\dagger c_j^{\phantom\dagger}$ evaluated with a single Monte Carlo sample $\alpha$, $\widetilde{P}_{jk}|_{\alpha}$:
 \begin{equation}
     L^\triangle_{jkl}\equiv\widetilde{P}_{jk}|_{\alpha} \widetilde{P}_{kl}|_{\beta} \widetilde{P}_{lj}|_{\gamma},
     \label{eq:triangle}
@@ -311,7 +318,7 @@ The numerical simulations were performed on the JUWELS cluster at FZ J\"ulich an
 
 
 %\bibliographystyle{apsrev4-1}
-\bibliography{refs}
+\bibliography{refs,t+X-NSF}
 %\newpage
 \appendix
 
