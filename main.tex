@@ -197,7 +197,7 @@ $\hat{P}\equiv |G\rangle \langle G|$ is the projection operator for the ground s
 \right.
 \label{eq:j-j}
 \end{equation}
-where $P_{{\bf r}'{\bf r}}\equiv \langle G|c^\dagger_{{\bf r}'} c_{\bf r}|G\rangle $ is the two-point function and $x_i$ is the $x$ coordinate of position ${\bf r}_i$. Here, we used the definition of the current density operator for the third equality~\footnote{{\color{blue}For a Bogoliubov deGenne Hamiltonian, $H'$ takes the fermion bi-linear form after relabelling a set of fermion annihilation operators as creation operators and vice versa.}}.
+where $P_{{\bf r}'{\bf r}}\equiv \langle G|c^\dagger_{{\bf r}'} c_{\bf r}|G\rangle $ is the two-point function and $x_i$ is the $x$ coordinate of position ${\bf r}_i$. Here, we used the definition of the current density operator for the third equality~\footnote{For a Bogoliubov deGenne Hamiltonian, $H'$ takes the fermion bi-linear form after relabelling a set of fermion annihilation operators as creation operators and vice versa.}.
 (See Appendix for further detail.)
 Hence for the approximate Hamiltonian $\hat{H}'$ at zero temperature, the current-current correlation function consists of an appropriately weighed combination of quadrilateral loops and triangular loops of two-point functions.
 
@@ -282,7 +282,7 @@ in quantum many-fermion systems. Fig.~\ref{fig:hubbard} shows the ANN outcome fr
 Secondly, we bench-marked the QLT-based ML by comparing ANN assessment of superconductivity against exact results on the the mean field theory of the negative $U$ Hubbard model in Eq. \ref{eq:hubbard}. Since mean field theory cannot capture fluctuations the onset of superfluid density and superconducting transition coincide within mean-field theory. Hence we anticipated ANN assessment of superconductivity to be onset at the mean field transition. To test this,  we solved the self-consistent gap equations at  each inverse temperature $\beta$ to obtain the 
  $s$-wave pairing gap $\Delta(\beta)$. We then sampled QLT through finite-temperature Monte Carlo calculations, using the corresponding BdG mean-field model with the respective $\Delta(\beta)$ to generate the quasi-particle occupation number.
  The resulting phase diagram for $U=-8$ and $\mu=-0.5$
- using $\beta=0.3$ and $\beta=0.8$ as the high and  low temperature limit training points are shown in Fig. \ref{fig:mlmft}. {\color{red}\bf Frank some words on the different training points for this?} 
+ using $\beta=0.3$ and $\beta=0.8$ as the high and  low temperature limit training points are shown in Fig. \ref{fig:mlmft}. \footnote{The training points were chosen to enclose the known mean-field transition point.}
  Indeed, ANN assessment of superconductivity shows a sharp onset at the mean-field superconducting transition.
 
  Armed with the above results establishing our confidence on QLT-based ML, we now turn to a model in which superconductivity arises from the quantumm critical fluctuations rather than from a hand-picked interaction. Specifically we consider 
@@ -301,14 +301,14 @@ where $\alpha=x,y$ labels the two fermion flavors, and $s = \uparrow, \downarrow
 
 \begin{figure}
 \includegraphics[scale=.43]{fig3.pdf}
-\caption{Neural network output for the superconducting transition near a {\bf metallic quantum critical point.The vertical lines indicate the superconducting transition temperature $\beta_c\sim 12.5$ (dashed) derived from the superfluid density measurements and the onset of diamagnetic fluctuations $\beta_{dia} \sim 6.9$ (dotted) where the orbital magnetic susceptibility changes sign\cite{Erez2016}.}}
+\caption{Neural network output for the superconducting transition near a {\bf metallic quantum critical point}. The training points were at $\beta=30$ for superfluid transport and $\beta=5$ for metallic transport.
+The vertical lines indicate the superconducting transition temperature $\beta_c\sim 12.5$ (dashed) derived from the superfluid density measurements and the onset of diamagnetic fluctuations $\beta_{dia} \sim 6.9$ (dotted) where the orbital magnetic susceptibility changes sign\cite{Erez2016}.Statistics from 10 different neural networks is shown for the QLT architecture.}
 \label{fig:afmetal}
 \end{figure}
 
+The results shown in Fig. \ref{fig:afmetal} 
 
-Both architectures are trained with samples at low temperature $\beta=30$ representing superconducting behaviors and samples at high temperature $\beta=5$ representing normal metallic behaviors, and applied towards the interpolating temperatures afterwards. Statistics from 10 different neural networks is shown for the QLT architecture. The system size is $8\times 8$. 
-
-The eligibility of both QLT and convolutional neural network can also be extended to scenarios where the superconductivity has $d$-wave pairing symmetry, such as the effective action model in Eq. \ref{eq:afmetal}. Again, we perform parallel studies using both the CNN or the QLT architectures. Both ANNs are trained with superconducting samples at low temperature $\beta=30$ and normal metallic samples at high temperature $\beta=5$. The results of supervised machine learning for the interpolating temperatures are illustrated in Fig. \ref{fig:afmetal}. In comparison, superfluid density measurement suggested critical temperature $T_c\simeq 0.08$ for the superconductor-metal transition\cite{Erez2016}.
+. In comparison, superfluid density measurement suggested critical temperature $T_c\simeq 0.08$ for the superconductor-metal transition\cite{Erez2016}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
