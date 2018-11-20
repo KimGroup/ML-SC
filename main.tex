@@ -295,8 +295,9 @@ L_\varphi &=& \sum_i \frac{1}{2c^2} \left(\frac{d\vec\varphi_i}{d\tau}\right)^2 
 & & +\frac{1}{2}\sum_{\left\langle ij \right\rangle} (\vec \varphi_i - \vec \varphi_j)^2
 \label{eq:afmetal}
 \end{eqnarray}
-where $\alpha=x,y$ labels the two fermion flavors, and $s = \uparrow, \downarrow$ denotes the spin. The fermion hopping amplitudes are $t_{x,i,i\pm\hat x}=t_{y,i,i\pm\hat y}=1$ and $t_{x,i,i\pm\hat y}=t_{y,i,i\pm\hat x}=0.5$, and we set the Yukawa coupling $\lambda=3$ and chemical potential $\mu=0.5$. The dynamics of the SDW order parameter is characterized by $r=10.35$ and $u=1$ and the bare bosonic velocity $c=2$. We also set the system size to $8\times 8$. [STOPPEd HERE]
-The inputs for the CNN architecture are the unprocessed DQMC samples of the Green's functions, while the QLT architecture consists of a shallow neural network with QLT-processed DQMC samples as inputs. 
+where $\alpha=x,y$ labels the two fermion flavors, and $s = \uparrow, \downarrow$ denotes the spin. The fermion hopping amplitudes are $t_{x,i,i\pm\hat x}=t_{y,i,i\pm\hat y}=1$ and $t_{x,i,i\pm\hat y}=t_{y,i,i\pm\hat x}=0.5$, and we set the Yukawa coupling $\lambda=3$ and chemical potential $\mu=0.5$. The dynamics of the SDW order parameter is characterized by $r=10.35$ and $u=1$ and the bare bosonic velocity $c=2$. We also set the system size to $8\times 8$. Again we compare the assessments of the CNN on the unprocessed Green's functions to the assessments of the simple ANN on the QLT. 
+
+
 
 \begin{figure}
 \includegraphics[scale=.43]{fig3.pdf}
