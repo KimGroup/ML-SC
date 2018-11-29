@@ -233,10 +233,10 @@ H_0 &=& -\underset{\left\langle ij \right\rangle, s}{\sum} \left( c^\dagger_{j,s
 H_U &=& U \underset{i}{\sum} \left(n_{i,\uparrow}-\frac{1}{2}\right) \left(n_{i,\downarrow}-\frac{1}{2}\right)
 \label{eq:hubbard}
 \end{eqnarray}
-where $s = \uparrow, \downarrow$ denotes the spin, $c^\dagger_{i,s}$ is the electron creation operator, and $n_{i,s}=c^\dagger_{i,s}c_{i,s}$ is the electron density operator. $U=-\left|U\right|<0$ is the attractive interaction strength and $\mu$ is the chemical potential. We study the system size of $8\times 8$. Without loss of generality, we set $U=-8$ and the electron density $\left\langle n\right\rangle = \left\langle n_\uparrow\right\rangle+ \left\langle n_\downarrow\right\rangle  \simeq 0.9$ slightly below half filling.  For each site of the lattice, we then build and collect site-touching quantum loops $L^\Box$ and $ L^\triangle$ of linear dimension less than two lattice constants. The QLT so constructed forms the input vector $x$ for the shallow ANN {\color{red} \bf depicted in Fig.~\ref{fig:network_architecture}.}  
+where $s = \uparrow, \downarrow$ denotes the spin, $c^\dagger_{i,s}$ is the electron creation operator, and $n_{i,s}=c^\dagger_{i,s}c_{i,s}$ is the electron density operator. $U=-\left|U\right|<0$ is the attractive interaction strength and $\mu$ is the chemical potential. We study the system size of $8\times 8$. Without loss of generality, we set $U=-8$ and the electron density $\left\langle n\right\rangle = \left\langle n_\uparrow\right\rangle+ \left\langle n_\downarrow\right\rangle  \simeq 0.9$ slightly below half filling.  For each site of the lattice, we then build and collect site-touching quantum loops $L^\Box$ and $ L^\triangle$ of linear dimension less than two lattice constants. The QLT so constructed forms the input vector $x$ for the shallow ANN  depicted in Fig.~\ref{fig:network_architecture}.
 
 
-%After proper Trotter decomposition and mapping the system into 2+1 dimensions with the imaginary time direction controlling the systematic temperature, both models can be simulated via DQMC methods without the sign problem. Both models exhibit a superconductor-metal transition at a critical temperature\cite{Scalettar1989, Scalapino1992,Erez2016}. On the other hand, while the pairing symmetry is naturally $s$-wave in the negative $U$ Hubbard model, the low-temperature superconducting phase of the effective action model in Eq. \ref{eq:afmetal} that consists two flavors of fermions coupled to an SDW order parameter and exhibits $d$-wave pairings. 
+%After proper Trotter decomposition and mapping the system into 2+1 dimensions with the imaginary time direction controlling the systematic temperature, both models can be simulated via DQMC methods without the sign problem. Both models exhibit a superconductor-metal transition at a critical temperature\cite{Scalettar1989, Scalapino1992,Erez2016}. On the other hand, while the pairing symmetry is naturally $s$-wave in the negative $U$ Hubbard model, the low-temperature superconducting phase of the effective action model in Eq.~\eqref{eq:afmetal} that consists two flavors of fermions coupled to an SDW order parameter and exhibits $d$-wave pairings. 
 
 \begin{figure}
     \centering
@@ -255,7 +255,7 @@ where $s = \uparrow, \downarrow$ denotes the spin, $c^\dagger_{i,s}$ is the elec
 
 %Our neural network can successfully distinguish the superconductors from the normal metals irrespective of the superconducting pairing symmetry. First, this is illustrated using DQMC samples of the negative $U$ Hubbard model in Eq.\ref{eq:hubbard}. 
 The ANN taking QLT input was trained with a training set consisting of about 20,000 samples obtained from the superconducting phase at low temperature $\beta=20$ and normal phase at high temperature $\beta=2$. 
-For training, we used cross-entropy cost function and  L2 regularization to avoid over-training and a mini-batch size of 10. We also reserve an independent validation set $10\sim 20\%$ of the training set for validation purposes including learning speed control and termination\cite{MLbook}.
+For training, we used cross-entropy cost function and  L2 regularization to avoid over-training and a mini-batch size of 10. We also reserve an independent validation set $10\sim 20\%$ of the training set for validation purposes including learning speed control and termination \cite{MLbook}.
 Then the QLT input from the range of $\beta$ interpolating between the training points were tested with the result summarized in Fig. \ref{fig:hubbard}. 
 %We perform two parallel studies using the both the CNN and the QLT architectures that we have proposed in the previous section. 
 %The results of the supervised machine learning on the interpolating $\beta$ are summarized in Fig. \ref{fig:hubbard}. %The results from the CNN are in very good consistency with the results from a simple neural network accompanying QLT, and both
@@ -269,7 +269,7 @@ in quantum many-fermion systems. Fig.~\ref{fig:hubbard} shows the ANN outcome fr
 \begin{figure}
 \includegraphics[scale=.43]{fig1.pdf}
 \caption{
-{\bf Negative-U Hubbard model.} The neural outputs of the quantum loop topography (QLT) and convolutional neural network (CNN) architectures for superconducting transport versus the inverse temperature $\beta$. While the inputs for the deep CNN are the unprocessed Green's functions $P(r,r')$ from the square-lattice negative $U$ Hubbard model in Eq. \ref{eq:hubbard}, we pre-process the input for the shallow ANN of the QLT architecture in the form of the quantum loops in Eq. \ref{eq:triangle} and \ref{eq:quad}. Both architectures are trained with samples at low temperature $\beta=20$ representing superconducting transport and high temperature $\beta=2$ representing normal state transport. Then the resulting architectures are applied towards the interpolating temperatures. $U=-8$, $\left\langle n\right\rangle= \left\langle n_\uparrow\right\rangle+\left\langle n_\downarrow\right\rangle\simeq 0.9$, $d_c=2$, and the system size is $8\times 8$. }\label{fig:hubbard}
+{\bf Negative-U Hubbard model.} The neural outputs of the quantum loop topography (QLT) and convolutional neural network (CNN) architectures for superconducting transport versus the inverse temperature $\beta$. While the inputs for the deep CNN are the unprocessed Green's functions $P(r,r')$ from the square-lattice negative $U$ Hubbard model in Eq.~\eqref{eq:hubbard}, we pre-process the input for the shallow ANN of the QLT architecture in the form of the quantum loops in Eq.~\eqref{eq:triangle} and \ref{eq:quad}. Both architectures are trained with samples at low temperature $\beta=20$ representing superconducting transport and high temperature $\beta=2$ representing normal state transport. Then the resulting architectures are applied towards the interpolating temperatures. $U=-8$, $\left\langle n\right\rangle= \left\langle n_\uparrow\right\rangle+\left\langle n_\downarrow\right\rangle\simeq 0.9$, $d_c=2$, and the system size is $8\times 8$. }\label{fig:hubbard}
 \end{figure}
 
 
@@ -284,20 +284,20 @@ in quantum many-fermion systems. Fig.~\ref{fig:hubbard} shows the ANN outcome fr
 
 %This observation is also consistent with the performance of the neural network on mean-field ansatz, where the superconducting transport onset as soon as a mean-field pairing gap opens. For instance, 
 
-Secondly, we bench-marked the QLT+QMC by comparing ANN assessment of superconductivity against exact results on the the mean field theory of the negative $U$ Hubbard model in Eq. \ref{eq:hubbard}. Since mean field theory cannot capture fluctuations the onset of superfluid density and superconducting transition coincide within mean-field theory. Hence we anticipated ANN assessment of superconductivity to be onset at the mean field transition. To test this,  we solved the self-consistent gap equations at  each inverse temperature $\beta$ to obtain the 
+Secondly, we bench-marked the QLT+QMC by comparing ANN assessment of superconductivity against exact results on the the mean field theory of the negative $U$ Hubbard model in Eq.~\eqref{eq:hubbard}. Since mean field theory cannot capture fluctuations the onset of superfluid density and superconducting transition coincide within mean-field theory. Hence we anticipated ANN assessment of superconductivity to be onset at the mean field transition. To test this,  we solved the self-consistent gap equations at  each inverse temperature $\beta$ to obtain the 
  $s$-wave pairing gap $\Delta(\beta)$. We then sampled QLT through finite-temperature Monte Carlo calculations, using the corresponding BdG mean-field model with the respective $\Delta(\beta)$ to generate the quasi-particle occupation number.
  The resulting phase diagram for $U=-8$ and $\mu=-0.5$
  using $\beta=0.3$ and $\beta=0.8$ as the high and  low temperature limit training points are shown in Fig. \ref{fig:mlmft}. \footnote{The training points were chosen to enclose the known mean-field transition point.}
  Indeed, ANN assessment of superconductivity shows a sharp onset at the mean-field superconducting transition.
 
  Armed with the above results establishing our confidence on QLT+QMC, we now turn to a model in which superconductivity arises from the quantumm critical fluctuations rather than from a hand-picked interaction. Specifically we consider 
- a spin-fermion model in which two flavors of spin$-1/2$ fermions $\psi_x$ and $\psi_y$ are coupled to an easy-plane SDW order parameter $\vec{\varphi}$ at wave vector $\vec Q=(\pi, \pi)$ on a two-dimensional square lattice\cite{Erez2016}:
+ a spin-fermion model in which two flavors of spin$-1/2$ fermions $\psi_x$ and $\psi_y$ are coupled to an easy-plane SDW order parameter $\vec{\varphi}$ at wave vector $\vec Q=(\pi, \pi)$ on a two-dimensional square lattice~\cite{Erez2016}:
 \begin{eqnarray}
 L&=&L_F+L_\varphi \nonumber\\
 L_F &=&  -\sum_{\left\langle ij \right\rangle, s, \alpha} t_{\alpha ij} \psi_{\alpha is}^\dagger \psi_{\alpha js} + \sum_{i, s, \alpha} \psi_{\alpha is}^\dagger \left(\partial_\tau - \mu \right)\nonumber \\
 & & +\lambda \sum_{i,s,s'} e^{i \vec Q\cdot \vec r_i} \left[ \vec s\cdot \vec \varphi_i\right]_{ss'} \psi_{xis}^\dagger \psi_{yis'} \nonumber\\
 L_\varphi &=& \sum_i \frac{1}{2c^2} \left(\frac{d\vec\varphi_i}{d\tau}\right)^2 + \frac{r}{2}\vec \varphi_i^2 + \frac{u}{4} (\vec \varphi_i^2)^2 \nonumber \\
-& & +\frac{1}{2}\sum_{\left\langle ij \right\rangle} (\vec \varphi_i - \vec \varphi_j)^2
+& & +\frac{1}{2}\sum_{\left\langle ij \right\rangle} (\vec \varphi_i - \vec \varphi_j)^2 \,,
 \label{eq:afmetal}
 \end{eqnarray}
 where $\alpha=x,y$ labels the two fermion flavors, and $s = \uparrow, \downarrow$ denotes the spin. The fermion hopping amplitudes are $t_{x,i,i\pm\hat x}=t_{y,i,i\pm\hat y}=1$ and $t_{x,i,i\pm\hat y}=t_{y,i,i\pm\hat x}=0.5$, and we set the Yukawa coupling $\lambda=3$ and chemical potential $\mu=0.5$. The dynamics of the SDW order parameter is characterized by $r=10.35$ and $u=1$ and the bare bosonic velocity $c=2$. We also set the system size to $8\times 8$. Again we compare the assessments of the CNN on the unprocessed Green's functions to the assessments of the simple ANN on the QLT. 
@@ -351,7 +351,7 @@ The numerical simulations were performed on the JUWELS cluster at FZ J\"ulich an
 
 \section{Current-current correlations and quantum loop topography}
 
-In this appendix, we explore the connection between the zero-frequency current-current correlation in Eq. \ref{eq:Lambda}
+In this appendix, we explore the connection between the zero-frequency current-current correlation in Eq.~\eqref{eq:Lambda}
 \begin{equation}
 \left. \begin{aligned}
 \Lambda&\left({\bf r}_1, {\bf r}_2;\omega=0\right) = \int d\tau \left\langle \hat{j}_x({\bf r}_1,\tau)\hat{j}_x({\bf r}_2,0) \right\rangle  \\
@@ -402,7 +402,7 @@ On the other hand, the expectation value of the two-point correlator is given by
 \end{aligned}\right. 
 \label{eq:j-jbdg}
 \end{equation}
-Therefore, Eq. \ref{eq:app2} can be expressed in terms of products of two-point correlators trailing triangles and quadrilaterals. In particular, in terms of the original electron correlators $P_{\bf{r}\bf{r}'}=\left\langle c^\dagger_{\bf{r}}c_{\bf{r}'} \right\rangle$, $q_{\bf{r}}=1$ for all and Eq. \ref{eq:j-jbdg} returns to Eq.\ref{eq:j-j}. 
+Therefore, Eq.~\eqref{eq:app2} can be expressed in terms of products of two-point correlators trailing triangles and quadrilaterals. In particular, in terms of the original electron correlators $P_{\bf{r}\bf{r}'}=\left\langle c^\dagger_{\bf{r}}c_{\bf{r}'} \right\rangle$, $q_{\bf{r}}=1$ for all and Eq.~\eqref{eq:j-jbdg} returns to Eq.\ref{eq:j-j}. 
 
 %This is Mean field theory discussion. No longer necessary. 
 
@@ -410,7 +410,7 @@ Therefore, Eq. \ref{eq:app2} can be expressed in terms of products of two-point 
 
 
 %In addition, since the quasi-particles are no longer necessarily electron-like, care should be taken upon defining the current density operator (along the $\hat x$ direction): $j_x (q_y)= \left\{Q, v_x\right\} e^{iq_y y}/2$, where $v_x = i\left[H, x\right]$ is the $\hat x$ direction velocity operator and $Q$ is the charge operator that . and the trace in $L_{ijkl}$ ($L'_{jkl}$) is over the spin up and spin down electrons $c^\dagger_\uparrow$, $c^\dagger_\downarrow$ as well as the holes $c_\uparrow$, $c_\downarrow$ for a given set of sites $ijkl$ ($jkl$)
-%Note that the transformation $c^\dagger_{\vec r,\downarrow} \rightarrow (-1)^{x+y} c_{\vec r,\downarrow}$ maps $U$ to $-U$ in Eq. \ref{eq:hubbard} and $H^{BCS}_{MF}$ to $H^{SDW}_{MF}$ in Eq. \ref{eq:mfham}, and vice versa. Such equivalence in $L$ and $L'$ between the two phases, however, is broken by the charge operator $Q$, which changes sign after the transformation. Indeed, the static paramagnetic current-current correlation function $\Lambda_{xx}$ and that for the corresponding $H'=-P$ are shown in Fig. \ref{fig:exact}. 
+%Note that the transformation $c^\dagger_{\vec r,\downarrow} \rightarrow (-1)^{x+y} c_{\vec r,\downarrow}$ maps $U$ to $-U$ in Eq.~\eqref{eq:hubbard} and $H^{BCS}_{MF}$ to $H^{SDW}_{MF}$ in Eq.~\eqref{eq:mfham}, and vice versa. Such equivalence in $L$ and $L'$ between the two phases, however, is broken by the charge operator $Q$, which changes sign after the transformation. Indeed, the static paramagnetic current-current correlation function $\Lambda_{xx}$ and that for the corresponding $H'=-P$ are shown in Fig. \ref{fig:exact}. 
 
 %Scalapino, White and Zhang\cite{Scalapino1993} have shown from a response theory perspective that there are two contributions to $D_s/e^2$, a diamagnetic one $\langle-k_x\rangle$ related to the $\hat x$ direction kinetic energy density, and the static paramagnetic current-current correlation function $\Lambda_{xx}(q_x=0, q_y\rightarrow 0)$. Counter-intuitively, the diamagnetic part $\langle-k_x\rangle$ exists not only in superconductors, but also in normal metals or insulators, and it is rather the paramagnetic part that makes the distinction - while it cancels the diamagnetic part $\langle-k_x\rangle$ in the latter case, it vanishes in a superconductor thus exposing the real diamagnetic Meissner effect\footnote{The exception is a band that is initially fully occupied, where both diamagnetic and paramagnetic contributions vanish whatsoever; however, such a trivial band insulator is uninteresting and can be excluded from superconductivity in the first place.}:
 
@@ -431,7 +431,7 @@ Therefore, Eq. \ref{eq:app2} can be expressed in terms of products of two-point 
 
 %\begin{figure}
 %\includegraphics[scale=0.35]{figkLambda.eps}
-%\caption{Static paramagnetic current-current correlation function $\Lambda_{xx}(q_x=0, q_y\rightarrow 0)$ as in Eq. \ref{eq:lambdaform} for the original mean-field Hubbard model at half filling on two-dimensional square lattice in Eq. \ref{eq:mfham} and the phase-equivalent effective model $H'=-P$. The vertical red dashed line where $\Delta_{BCS}=\Delta_{SDW}=0$ is the mean-field phase boundary between the SDW insulator and the superconductor. In comparison with the original Hamiltonian, $H'$ does induce significant quantitative changes to $\Lambda_{xx}$; however, the phase-defining qualitative feature remains intact: $\Lambda_{xx}$ vanishes rapidly in a superconducting phase consistent with the onset of the Meissner effect.}\label{fig:exact}
+%\caption{Static paramagnetic current-current correlation function $\Lambda_{xx}(q_x=0, q_y\rightarrow 0)$ as in Eq.~\eqref{eq:lambdaform} for the original mean-field Hubbard model at half filling on two-dimensional square lattice in Eq.~\eqref{eq:mfham} and the phase-equivalent effective model $H'=-P$. The vertical red dashed line where $\Delta_{BCS}=\Delta_{SDW}=0$ is the mean-field phase boundary between the SDW insulator and the superconductor. In comparison with the original Hamiltonian, $H'$ does induce significant quantitative changes to $\Lambda_{xx}$; however, the phase-defining qualitative feature remains intact: $\Lambda_{xx}$ vanishes rapidly in a superconducting phase consistent with the onset of the Meissner effect.}\label{fig:exact}
 %\end{figure}
 
 %We consider instead an alternative model described by $H'=-P$,  where $P = \underset{n}{\sum} |n\rangle\langle n|$ is the projection operator onto the ground state. $H'$ shares with $H$ the same group of occupied (unoccupied) states $\left|n\right\rangle$ ($\left|m\right\rangle$) yet with a flattened quasiparticle spectrum $E'_n=-1$ ($E'_m=0$). Since we expect $H'$ to be superconducting if and only if $H$ is superconducting and the two models are adiabatically connected without closing the spectrum gap, we can based our judging criteria of the Meissner effect upon $\Lambda'_{xx}$ instead of $\Lambda_{xx}$, see Fig. \ref{fig:exact}. 
