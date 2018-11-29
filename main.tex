@@ -243,10 +243,10 @@ where $s = \uparrow, \downarrow$ denotes the spin, $c^\dagger_{i,s}$ is the elec
     \includegraphics[scale=.85]{architecture.pdf}
     \caption{{\bf Neural network architectures}. 
     			(a) QLT used as an input to a feed-forward fully-connected shallow neural network with one hidden layer 
-			consisting of $n=40$ sigmoid neurons. 
+			consisting of $n=40$ sigmoid neurons. Only triangular loops are illustrated.
 			%Each neuron processes the input $x$ through independent weights and biases $w\cdot x+b$. 
-    			(b) Deep convolutional neural network taking the unprocessed Green's functions 
-				$\widetilde{P}_{jk}|_{\alpha}$ with $j$ and $k$ traversing all the lattice sites.}
+    			(b) Deep convolutional neural network that convolves and pooles the unprocessed Green's functions 
+				$\widetilde{P}_{jk}|_{\alpha}$ before threading them through a fully-connected layer of $n=256$ hidden neurons.}
     \label{fig:network_architecture}
 \end{figure}
 
