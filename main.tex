@@ -313,7 +313,7 @@ Studying a system of size $8\times 8$, we tune the dynamics of the SDW order par
 \begin{figure}
 \includegraphics[scale=.43]{fig3.pdf}
 \caption{Neural network output for the superconducting transition near a {\bf metallic quantum critical point}. The training points were at $\beta=30$ for superfluid transport and $\beta=5$ for metallic transport.
-The vertical lines indicate the superconducting transition temperature $\beta_c\sim 12.5$ (dashed) derived from the superfluid density measurements and the onset of diamagnetic fluctuations $\beta_{dia} \sim 6.9$ (dotted) where the orbital magnetic susceptibility changes sign\cite{Erez2016}.Statistics from 10 different neural networks is shown for the QLT architecture.}
+The vertical lines indicate the superconducting transition temperature $\beta_c\sim 12.5$ (dashed) derived from the superfluid density measurements and the onset of diamagnetic fluctuations $\beta_{dia} \sim 6.9$ (dotted) where the orbital magnetic susceptibility changes sign \cite{Schattner2016a}. Statistics from 10 different neural networks is shown for the QLT architecture.}
 \label{fig:afmetal}
 \end{figure}
 
@@ -331,28 +331,14 @@ Further note that the QLT+QMC approached achieved the above detection of superco
 \noindent{\em Conclusions.-- }
 %
 To summarize, we have introduced a feature selection protocol for machine learning longitudinal transport and demonstrated that such a QLT preprocessing step allows to identify the onset of superconductivity in quantum many-fermion systems at considerably lower numerical cost than alternative approaches.
-%guided by the response theory in order to target longitudinal transport: the QLT for longitudinal transport. 
-%We have show-cased the effectiveness and efficiency of this QLT+QMC approach by employing the approach to models that are known to have superconductivity in their phase diagram. 
-Comparing to other machine learning approach, we showed that the response theory guided QLT+QMC approach performs just as well as the much more involved CNN approach rooted in the image recognition techniques. The clear advantage of QLT+QMC approach, however, is that it is motivated by quantum statistical physics considerations and therefore allows for a much better intuitive understanding of its capabilities.
-%quantum statistical physics tradition is incorporated into the approach; this synergy simultaneously gives accountability and efficiency to the machine learning. 
-In an explicit application, we showed that the QLT+QMC approach can detect correctly transport signatures of superconducting fluctuations by comparing the neural network outcome to rigorous traditional measurements of the superfluid density. The benefit of QLT+QMC approach for detecting superconducting fluctuations is that its computational cost is considerably lower. Moreover, since QLT is semi-locally defined, it does not require translational symmetry. We anticipate that QLT+QMC will be even more valuable in detecting states without traditional representation that are nevertheless defined through non-trivial transport properties such as non-Fermi liquids. 
-
-
-
-
-%We show that the 'big data' issue can be resolved by either resorting to powerful deep learning mechanisms such as the CNN, or introducing feature-selection interface such as QLT. Our studies further embrace the power of machine learning and open its door to other condensed matter systems.
-
-%The consistency between the results from the CNN and QLT-assisted simple ANN is an interesting example on how we can balance our cost on human intelligence and artificial intelligence. We note that the QLT samples are obtained from the raw samples of the Green's functions, so the latter is equally inclusive if not more; on the other hand, QLT's pre-processing of the data involves non-linear chain products of the raw Green's function data, therefore, if the QLT data is indeed sufficient for determining the emergent superconductivity, starting from the raw Green's functions may invoke extra redundancy and logical steps. This requirement can be compensated by powerful deep neural networks such as the CNN. We advise choosing between deeper neural network and feature-selection layers depending on the amount theoretical understanding and intuition on the target systems as well as computational resources. 
-
-%In addition, our work also features thermal phase transitions between superconductors and normal metals in two dimensions of Kosterlitz-Thouless character where machine learning ansatz saw substantial subtlety and difficulty previously\cite{Anna2018}. 
-
+Comparing to other machine learning approaches, we showed that the response theory guided QLT+QMC approach performs just as well as the much more involved CNN approach rooted in image recognition techniques. The clear advantage of QLT+QMC approach, however, is that it is motivated by quantum statistical physics considerations and therefore allows for a much better intuitive understanding of its capabilities. A further advantage is that the  QLT is semi-locally defined and as such it does not require e.g. translational symmetry.
+In an explicit application, we showed that the QLT+QMC approach can detect correctly transport signatures of superconducting fluctuations by comparing the neural network outcome to rigorous traditional measurements of the superfluid density. 
+Looking ahead, we anticipate that QLT+QMC will be even more valuable in detecting states without traditional representation that are nevertheless defined through non-trivial transport properties such as non-Fermi liquids. 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%\vskip 2cm
-
-{\it Acknowledgement --} 
+{\it Acknowledgements.--} 
 We acknowledge useful discussions with Erez Berg, Yi-Ting Hsu, and Hong Yao. YZ and E-AK acknowledge the support from the U.S. Department of Energy, Office of Basic Energy Sciences, Division of Materials Science and Engineering under Award DE-SC0018946.
 The Cologne group acknowledges partial support from the the Deutsche Forschungsgemeinschaft (DFG, German Research Foundation) -- Projektnummer 277101999 -- TRR 183 (project B01).
 The numerical simulations were performed on the JUWELS cluster at FZ J\"ulich and the CHEOPS cluster at RRZK Cologne.
