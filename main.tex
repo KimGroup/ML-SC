@@ -145,7 +145,7 @@ where $P_{{\bf r}'{\bf r}}\equiv \langle G|c^\dagger_{{\bf r}'} c_{\bf r}|G\rang
 (See Appendix for further details.)
 Hence for the approximate Hamiltonian $\hat{H}'$, the current-current correlation function at zero temperature consists of an appropriately weighed combination of quadrilateral loops and triangular loops of two-point functions.
 
-Note that  $L^\triangle_{jkl}$ and  $L^\Box_{ijkl}$ defined in Eqs.~\eqref{eq:triangle} and \eqref{eq:quad} involves samples of the Green's functions $\widetilde{P}_{jk}|_{\alpha}$ typically coming from a determinant quantum Monte Carlo (DQMC) calculation. 
+Note that  $L^\triangle_{jkl}$ and  $L^\Box_{ijkl}$ defined in Eqs.~\eqref{eq:triangle} and \eqref{eq:quad} involve samples of the Green's functions $\widetilde{P}_{jk}|_{\alpha}$ typically coming from a determinant quantum Monte Carlo (DQMC) calculation. 
 By processing the loop operators during the sampling process and avoiding an a posteriori Monte Carlo averaging, we quickly pass these fluctuation-laden data, which should encode information of current-current correlation function, to the machine learning step. 
 Clearly, the loop operators $L^\Box_{jklm}$ and $ L^\triangle_{jkl}$ built from single Monte Carlo instances and only for short-ranged loops, cannot replace a rigorous calculation of the current-current correlation function, especially for a gapless system. But we anticipate the QLT consisting of the triangular and quadrilateral loops to serve as a  proxy for the current-current correlation function containing qualitative information regarding longitudinal transport directly in the imaginary time data.  
 
