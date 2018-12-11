@@ -177,9 +177,8 @@ Since both models are two-dimensional lattice models, we note that there are two
 
 We start by considering what is probably considered the simplest model for superconductivity -- the negative-$U$ Hubbard model on the square lattice \cite{Scalettar1989, Scalapino1992}
 \begin{eqnarray}
-H &=& H_0 + H_U -  \mu\underset{i}{\sum} \left(n_{i,\uparrow} +n_{i,\downarrow}\right) \,, \nonumber\\
-H_0 &=& -\underset{\left\langle ij \right\rangle, s}{\sum} \left( c^\dagger_{j,s}c_{i,s} +  c^\dagger_{i,s}c_{j,s} \right) \,, \nonumber \\
-H_U &=& U \underset{i}{\sum} \left(n_{i,\uparrow}-\frac{1}{2}\right) \left(n_{i,\downarrow}-\frac{1}{2}\right) \,,
+H = &-&\underset{\left\langle ij \right\rangle, s}{\sum} \left( c^\dagger_{j,s}c_{i,s} +  c^\dagger_{i,s}c_{j,s} \right) -  \mu\underset{i}{\sum} \left(n_{i,\uparrow} +n_{i,\downarrow}\right) \,, \nonumber\\
+&+& U \underset{i}{\sum} \left(n_{i,\uparrow}-\frac{1}{2}\right) \left(n_{i,\downarrow}-\frac{1}{2}\right)
 \label{eq:hubbard}
 \end{eqnarray}
 where $c^\dagger_{i,s}$ is an electron creation operator at site $i$ with spin $s =\, \uparrow, \downarrow$  and $n_{i,s}=c^\dagger_{i,s}c^{\phantom\dagger}_{i,s}$ is the electron density operator. $U=-\left|U\right|<0$ is the attractive interaction strength and $\mu$ is the chemical potential.  Without loss of generality, we set $U=-8$ and tune the electron density $\left\langle n\right\rangle = \left\langle n_\uparrow\right\rangle+ \left\langle n_\downarrow\right\rangle  \simeq 0.9$ slightly below half filling. 
