@@ -108,7 +108,7 @@ The QLT approach has so far been employed to the detection of topological order 
     			(a) QLT used as an input to a feed-forward fully-connected shallow neural network with one hidden layer 
 			consisting of $n=40$ sigmoid neurons. Only triangular loops $ L^\triangle_{jkl}$ are illustrated.
     			(b) Deep convolutional neural network that convolves and pooles the unprocessed Green's functions 
-				$\widetilde{P}_{jk}|_{\alpha}$ before threading them through a fully-connected layer of $n=256$ hidden neurons.}
+				$P(\mathbf{r}, \mathbf{r}')$ before threading them through a fully-connected layer of $n=256$ hidden neurons.}
     \label{fig:network_architecture}
 \end{figure}
 Targeting the longitudinal transport for the purpose of the current study, we build a vector at each site $j$ consisting of all small loops with three vertices, $L^\triangle_{jkl}$ and with four vertices, $L^\Box_{jklm}$ including the site $j$. The loops represent
@@ -200,7 +200,7 @@ Clearly, the ANN transport classification of the two phases is achieved with a h
 
 \begin{figure}
 \includegraphics[scale=.43]{fig2.pdf}
-\caption{{\bf Mean-field transition} of the negative-U Hubbard model. 
+\caption{{\bf Mean-field transition of the negative-U Hubbard model.} 
 		Comparison of the mean-field $s$-wave pairing gap $\Delta$ (red dots) 
 		and the neural output from the QLT+QMC approach.
 		The consistent onset of both functions demonstrates that the machine learning approach is indeed sensitive 
