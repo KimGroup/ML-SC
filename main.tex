@@ -132,13 +132,14 @@ The loop operators associated with a site are illustrated in Fig.~\ref{fig:loops
  Illustration of the (i) triangular and (ii) quadralateral {\bf loop operators} employed to calculate the longitudinal transport. 
 }\label{fig:loops}
 \end{figure}
-To see how the loop operators $L^\Box_{jklm}$ and $ L^\triangle_{jkl}$ capture the longitudinal transport, consider the zero-frequency current-current correlation function:  
+To see how the loop operators $L^\Box_{jklm}$ and $ L^\triangle_{jkl}$ capture the longitudinal transport, consider the zero-frequency current-current correlation function  
 \begin{equation}
 \Lambda_{xx}({\bf r}_1,{\bf r}_2;\omega_n=0)\equiv\int d\tau\left\langle \hat{j}_x\left({\bf r}_1, \tau \right) \hat{j}_x\left({\bf r}_2, 0 \right)\right\rangle,
 \label{eq:Lambda}
 \end{equation}
-where $\hat{j}_x({\bf r}_1,\tau)=e^{H\tau} \hat{j}_x({\bf r}_1) e^{-H\tau}$ with the current density operator $\hat{j}_x({\bf r_1})= -i[H({\bf r}_1),\hat{x}]$. The Fourier transform of the 
-current-current correlation function in Eq.~\eqref{eq:Lambda} is famously related to the superfluid density $\rho_s$ through $\rho_s\propto \Lambda_{xx}(q_x\!\rightarrow\! 0,q_y\!=\!0,\omega_n\!=\!0)-\Lambda_{xx}(q_x\!=\!0,q_y\!\rightarrow\!0,\omega_n\!=\!0)$ \cite{Scalapino1993, Scalapino1992}. 
+where $\hat{j}_x({\bf r}_1,\tau)=e^{H\tau} \hat{j}_x({\bf r}_1) e^{-H\tau}$ with the current density operator $\hat{j}_x({\bf r_1})= -i[H({\bf r}_1),\hat{x}]$. 
+Its Fourier transform %of the current-current correlation function in Eq.~\eqref{eq:Lambda} 
+is well known to be related \cite{Scalapino1993, Scalapino1992} to the superfluid density $\rho_s$ through $\rho_s\propto \Lambda_{xx}(q_x\!\rightarrow\! 0,q_y\!=\!0,\omega_n\!=\!0)-\Lambda_{xx}(q_x\!=\!0,q_y\!\rightarrow\!0,\omega_n\!=\!0)$. 
 
 To gain further  analytical insight, consider 
 a gapped mean-field Hamiltonian with a single flat band which can approximated as $H'=-\Pi$ , where
@@ -160,7 +161,7 @@ Hence for the approximate Hamiltonian ${H}'$, the current-current correlation fu
 
 Note that  $L^\triangle_{jkl}$ and  $L^\Box_{ijkl}$ defined in Eqs.~\eqref{eq:triangle} and \eqref{eq:quad} involve samples of the Green's functions $\widetilde{P}_{jk}|_{\alpha}$ typically coming from a determinant quantum Monte Carlo (DQMC) calculation. 
 By processing the loop operators during the sampling process and avoiding an a posteriori Monte Carlo averaging, we quickly pass these fluctuation-laden data, which encodes (partial) information of the current-current correlation function, to the machine learning step, see Fig.~\ref{fig:network_architecture}(a). 
-Clearly, the loop operators $L^\Box_{jklm}$ and $ L^\triangle_{jkl}$ built from individual Monte Carlo samples and only for short-ranged loops, cannot replace a rigorous calculation of the current-current correlation function, especially for a gapless system. But we anticipate the QLT consisting of the triangular and quadrilateral loops to serve as a proxy for the current-current correlation function containing qualitative information regarding longitudinal transport directly in the imaginary time data. Such a proxy is particularly desirable since traditional approaches, being based on the explicit construction of time-displaced Green's functions, are costly and frequently require numerical stabilization \cite{Hirsch1988, Santos2003}, whereas QLT only demands equal-time correlations, readily available in DQMC simulations.
+Clearly, the loop operators $L^\Box_{jklm}$ and $ L^\triangle_{jkl}$ built from individual Monte Carlo samples and only for short-ranged loops, cannot replace a rigorous calculation of the current-current correlation function, especially for a gapless system. But we anticipate the QLT consisting of the triangular and quadrilateral loops to serve as a proxy for the current-current correlation function containing qualitative information regarding longitudinal transport directly in the imaginary time data. Such a proxy is particularly desirable since traditional approaches,  based on an explicit construction of time-displaced Green's functions, are costly and frequently require numerical stabilization \cite{Hirsch1988, Santos2003}, whereas QLT only demands equal-time correlations, readily available in DQMC simulations.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -182,7 +183,7 @@ H = &-&\underset{\left\langle ij \right\rangle, s}{\sum} \left( c^\dagger_{j,s}c
 \label{eq:hubbard}
 \end{eqnarray}
 where $c^\dagger_{i,s}$ is an electron creation operator at site $i$ with spin $s =\, \uparrow, \downarrow$  and $n_{i,s}=c^\dagger_{i,s}c^{\phantom\dagger}_{i,s}$ is the electron density operator. $U=-\left|U\right|<0$ is the attractive interaction strength and $\mu$ is the chemical potential.  Without loss of generality, we set $U=-8$ and tune the electron density $\left\langle n\right\rangle = \left\langle n_\uparrow\right\rangle+ \left\langle n_\downarrow\right\rangle  \simeq 0.9$ slightly below half filling. 
-Numerically, we study a system of $8\times 8$ sites. For each site, we  build and collect site-touching quantum loops $L^\Box$ and $ L^\triangle$. The so constructed QLT data forms a field of principle input vectors $x$ for a shallow ANN as illustrated in Fig.~\ref{fig:network_architecture}(a). 
+Numerically, we study a system of $8\times 8$ sites. For each site, we  build and collect site-touching quantum loops $L^\Box$ and $ L^\triangle$. The so constructed QLT data forms a field of principle input vectors $x$ for a shallow ANN, see Fig.~\ref{fig:network_architecture}(a). 
 
 \begin{figure}[t]
 \includegraphics[scale=.43]{fig1.pdf}
@@ -217,7 +218,7 @@ Indeed, the QLT assessment of superconductivity shows a sharp onset at the mean-
 %
 Our second benchmark is to compare against an alternative numerical approach where the entire, unprocessed Green's functions 
 $\widetilde{P}_{jk}|_{\alpha}$ for all $j,k$'s are used as input for a convolutional neural network, Fig.~\ref{fig:network_architecture}(b), akin to previous work~\cite{Simon2016} that demonstrated the feasibility of such an approach to  locate symmetry-breaking phase transitions in quantum many-fermion systems. Note that in the thermodynamic limit, i.e. for large system sizes, these data sets are quasi-3-dimensional, $L^2 \times M$, for a Markov chain of length $M$, and hence considerably larger than the condensed quasi-two-dimensional QLT loop vector field, $L^2 \times D(d_c)$, where $D(d_c)$ denotes the dimension of a loop vector for given maximal loop length $d_c$.
-Fig.~\ref{fig:hubbard} shows the direct comparison of the QLT+shallow ANN approach versus such a CNN setting. With the two techniques giving essentially the same result, we conclude that  both approaches are indeed capable of detecting the onset of superconducting fluctuations from raw data of equal-time Green's functions. The QLT approach, however, succeeds in doing so with a sufficiently smaller data set, which is of enormous practical advantage.
+Fig.~\ref{fig:hubbard} shows the direct comparison of the QLT+shallow ANN approach versus such a CNN setting. With the two techniques giving essentially the same result, we conclude that  both approaches are indeed capable of detecting the onset of superconducting fluctuations from raw data of equal-time Green's functions. The QLT approach, however, succeeds in doing so with a significantly smaller data set, which is of enormous practical advantage.
 
 \begin{figure}[b]
 \includegraphics[scale=.43]{fig3.pdf}
