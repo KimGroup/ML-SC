@@ -29,7 +29,7 @@ Quantum many-fermion systems give rise to diverse states of matter that often re
 Here we demonstrate that quantum loop topography (QLT) can be used to directly probe transport by machine learning current-current correlations in imaginary time.
 We showcase this approach by studying the emergence of superconducting fluctuations in the negative-U Hubbard model and  
 a spin-fermion model for a metallic quantum critical point. 
-For both sign-free models we find that the QLT approach detects a change in transport in very good agreement with their established 
+For both sign-free models, we find that the QLT approach detects a change in transport in very good agreement with their established 
 phase diagrams.
 These proof-of-principle calculations combined with the numerical efficiency of the QLT approach point a way to identify hitherto elusive
 transport phenomena such as non-Fermi liquids using machine learning algorithms.
@@ -52,7 +52,7 @@ providing even quantitative guidance. The fundamental understanding of quantum m
 has proved to be more elusive. The distinct feature leading to a seemingly unsurmountable complication
 for these systems arguably is the profusion of gapless modes near the Fermi energy. 
 On the analytical side, the concurrent treatment of these gapless degrees of freedom and their interactions with other (bosonic) soft modes,
-e.g.~in the vicinity of a quantum phase transition \cite{Hertz1976,Millis1993}, has remained a formidable challenge.
+e.g.~in the vicinity of a quantum phase transition \cite{Hertz1976, Millis1993}, has remained a formidable challenge.
 On the numerical side, many-fermion systems have long proved to resist a solution via quantum Monte Carlo techniques
 due to the occurrence of the so-called sign problem \cite{Loh1990} that is closely linked to the complex sign structure of the 
 many-fermion wavefunction (another consequence of the existence of a multitude of gapless modes).
@@ -72,15 +72,15 @@ in sign-problem free models
 \cite{Berg2018}
 built around the effective action for multiple fermion bands. 
 However, to infer transport properties one faces the problem that QMC simulations intrinsically provide access to imaginary time correlations only, 
-and the analytic continuation to real time is numerically ill posed, yielding no controlled framework
+and the analytic continuation to real time is numerically ill-posed, yielding no controlled framework
 to probe transport properties. 
 Instead, we resort to the recent development of machine learning approaches in quantum statistical physics and demonstrate that quantum loop topography (QLT), a numerical scheme initially designed to identify the topological Hall response of a system~\cite{qlt2016}, can in fact be used to measure {\em longitudinal} transport properties of itinerant many-fermion systems.
 
 Here we show that the QLT approach can be adapted to extract the essential features of the imaginary time current-current correlation function. %, readily available from QMC simulations. 
-One principle example which we focus on is the study of superconductivity, whose onset can, in principle, be tracked e.g. via the superfluid density which can be rigorously obtained from current-current correlations \cite{Scalapino1992,Scalapino1993}. 
+One principle example which we focus on is the study of superconductivity, whose onset can, in principle, be tracked e.g. via the superfluid density which can be rigorously obtained from current-current correlations \cite{Scalapino1992, Scalapino1993}. 
 We demonstrate that the QLT+QMC approach succeeds in identifying the essential features of this transition without any prior knowledge (e.g. about the explicit calculation of the superfluid density)
 and quantitatively matches existing results for the onset of superconductivity for a number of microscopic model systems,
-but at considerably lower computational cost.
+but at a considerably lower computational cost.
 
 
 
@@ -107,7 +107,7 @@ The QLT approach has so far been employed to the detection of topological order 
     \caption{{\bf Neural network architectures}. 
     			(a) QLT used as an input to a feed-forward fully-connected shallow neural network with one hidden layer 
 			consisting of $n=40$ sigmoid neurons. Only triangular loops $ L^\triangle_{jkl}$ are illustrated.
-    			(b) Deep convolutional neural network that convolves and pooles the unprocessed Green's functions 
+    			(b) Deep convolutional neural network that convolves and pools the unprocessed Green's functions 
 				$P(\mathbf{r}, \mathbf{r}')$ before threading them through a fully-connected layer of $n=256$ hidden neurons.}
     \label{fig:network_architecture}
 \end{figure}
@@ -129,7 +129,7 @@ The loop operators associated with a site are illustrated in Fig.~\ref{fig:loops
 \begin{figure}[b]
 \includegraphics[scale=0.48]{LoopOperators.pdf}
 \caption{
- Illustration of the (i) triangular and (ii) quadralateral {\bf loop operators} employed to calculate the longitudinal transport. 
+ Illustration of the (i) triangular and (ii) quadrilateral {\bf loop operators} employed to calculate the longitudinal transport. 
 }\label{fig:loops}
 \end{figure}
 To see how the loop operators $L^\Box_{jklm}$ and $ L^\triangle_{jkl}$ capture the longitudinal transport, consider the zero-frequency current-current correlation function  
@@ -141,8 +141,8 @@ where $\hat{j}_x({\bf r}_1,\tau)=e^{H\tau} \hat{j}_x({\bf r}_1) e^{-H\tau}$ with
 Its Fourier transform %of the current-current correlation function in Eq.~\eqref{eq:Lambda} 
 is well known to be related \cite{Scalapino1993, Scalapino1992} to the superfluid density $\rho_s$ through $\rho_s\propto \Lambda_{xx}(q_x\!\rightarrow\! 0,q_y\!=\!0,\omega_n\!=\!0)-\Lambda_{xx}(q_x\!=\!0,q_y\!\rightarrow\!0,\omega_n\!=\!0)$. 
 
-To gain further  analytical insight, consider 
-a gapped mean-field Hamiltonian with a single flat band which can approximated as $H'=-\Pi$ , where
+To gain further analytical insight, consider 
+a gapped mean-field Hamiltonian with a single flat band which can be approximated as $H'=-\Pi$, where
 $\Pi\equiv |G\rangle \langle G|$ is the projection operator for the ground state $|G\rangle$. At zero temperature we can evaluate the current-current correlation function for the system with the Hamiltonian ${H}'$:
 \begin{equation}
 \left. \begin{aligned}
@@ -157,9 +157,9 @@ $\Pi\equiv |G\rangle \langle G|$ is the projection operator for the ground state
 \end{equation}
 where $P_{{\bf r}'{\bf r}}\equiv \langle G|c^\dagger_{{\bf r}'} c_{\bf r}|G\rangle $ is the two-point function and $x_i$ is the $x$ coordinate of position ${\bf r}_i$. Here, we used the definition of the current density operator for the third equality~\footnote{For a Bogoliubov deGenne Hamiltonian, $H'$ takes the fermion bi-linear form after relabelling a set of fermion annihilation operators as creation operators and vice versa.}.
 (See Appendix for further details.)
-Hence for the approximate Hamiltonian ${H}'$, the current-current correlation function at zero temperature consists of an appropriately weighed combination of quadrilateral loops and triangular loops of two-point functions.
+Hence for the approximate Hamiltonian ${H}'$, the current-current correlation function at zero temperature consists of an appropriately weighted combination of quadrilateral loops and triangular loops of two-point functions.
 
-Note that  $L^\triangle_{jkl}$ and  $L^\Box_{ijkl}$ defined in Eqs.~\eqref{eq:triangle} and \eqref{eq:quad} involve samples of the Green's functions $\widetilde{P}_{jk}|_{\alpha}$ typically coming from a determinant quantum Monte Carlo (DQMC) calculation. 
+Note that $L^\triangle_{jkl}$ and  $L^\Box_{ijkl}$ defined in Eqs.~\eqref{eq:triangle} and \eqref{eq:quad} involve samples of the Green's functions $\widetilde{P}_{jk}|_{\alpha}$ typically coming from a determinant quantum Monte Carlo (DQMC) calculation. 
 By processing the loop operators during the sampling process and avoiding an a posteriori Monte Carlo averaging, we quickly pass these fluctuation-laden data, which encodes (partial) information of the current-current correlation function, to the machine learning step, see Fig.~\ref{fig:network_architecture}(a). 
 Clearly, the loop operators $L^\Box_{jklm}$ and $ L^\triangle_{jkl}$ built from individual Monte Carlo samples and only for short-ranged loops, cannot replace a rigorous calculation of the current-current correlation function, especially for a gapless system. But we anticipate the QLT consisting of the triangular and quadrilateral loops to serve as a proxy for the current-current correlation function containing qualitative information regarding longitudinal transport directly in the imaginary time data. Such a proxy is particularly desirable since traditional approaches,  based on an explicit construction of time-displaced Green's functions, are costly and frequently require numerical stabilization \cite{Hirsch1988, Santos2003}, whereas QLT only demands equal-time correlations, readily available in DQMC simulations.
 
@@ -189,14 +189,14 @@ Numerically, we study a system of $8\times 8$ sites. For each site, we  build an
 \includegraphics[scale=.43]{fig1.pdf}
 \caption{
 {\bf Negative-U Hubbard model.} The neural outputs of the quantum loop topography (QLT) and convolutional neural network (CNN) architectures (Fig.~\ref{fig:network_architecture}) for superconducting transport versus the inverse temperature $\beta$. While the inputs for the deep CNN are the unprocessed Green's functions $P(\mathbf{r},\mathbf{r}')$ from the square-lattice negative-$U$ Hubbard model in Eq.~\eqref{eq:hubbard}, 
-we preprocess the input for the shallow ANN of the QLT architecture in the form of the quantum loops in Eq.~\eqref{eq:triangle} and \ref{eq:quad}. Both architectures are trained with samples at low temperature $\beta=20$ representing superconducting transport and high temperature $\beta=2$ representing normal state transport. Then the resulting architectures are applied towards the interpolating temperatures. The vertical dashed line indicates $\beta_c = 1/T_c \approx 5.7$ \cite{Scalettar1989, Denteneer1993} and defines the s-wave superconductor phase (green shaded region).}\label{fig:hubbard}
+we preprocess the input for the shallow ANN of the QLT architecture in the form of the quantum loops in Eq.~\eqref{eq:triangle} and \eqref{eq:quad}. Both architectures are trained with samples at low temperature $\beta=20$ representing superconducting transport and high temperature $\beta=2$ representing normal state transport. Then the resulting architectures are applied towards the interpolating temperatures. The vertical dashed line indicates $\beta_c = 1/T_c \approx 5.7$ \cite{Scalettar1989, Denteneer1993} and defines the s-wave superconductor phase (green shaded region).}\label{fig:hubbard}
 \end{figure}
 
 
 In an initial training step, the ANN is optimized with a training set consisting of about 20,000 samples obtained from the superconducting phase at low temperature ($\beta=20$) and the normal phase at high temperature ($\beta=2$). 
 For training, we employ a cross-entropy cost function and L2 regularization to avoid over-training and a mini-batch size of 10. We also reserve an independent validation set of $10\sim 20\%$ of the training data set for validation purposes (such as learning speed control and termination \cite{MLbook}).
 After this training step, the QLT input from a range of $\beta$ interpolating between the two training points is classified using the optimized ANN, with the result summarized in Fig.~\ref{fig:hubbard}. 
-Clearly, the ANN transport classification of the two phases is achieved with a high confidence  $>99\%$ in the low and high temperature limits. In between, it indicates a smooth onset around the temperature $T_{\rm fluct}=\beta^{-1} \sim 0.28$, which we interpret as the onset of superconducting fluctuations and therefore expect it to be slightly higher than the reported critical temperature for the KT transition $T_c\simeq 0.175$ \cite{Scalettar1989, Denteneer1993}. As we argued above, the ANN has no means on determining the exact KT transition temperature, and this is the best performance we can in fact anticipate. 
+Clearly, the ANN transport classification of the two phases is achieved with a high confidence  $>99\%$ in the low and high temperature limits. In between, it indicates a smooth onset around the temperature $T_{\rm fluct}=\beta^{-1} \sim 0.28$, which we interpret as the onset of superconducting fluctuations and therefore expect it to be slightly higher than the reported critical temperature for the KT transition $T_c\simeq 0.175$ \cite{Scalettar1989, Denteneer1993}. As we argued above, the ANN has no means of determining the exact KT transition temperature, and this is the best performance we can in fact anticipate. 
 
 \begin{figure}
 \includegraphics[scale=.43]{fig2.pdf}
@@ -211,7 +211,7 @@ Clearly, the ANN transport classification of the two phases is achieved with a h
 
 We benchmark our QLT approach against two alternative approaches. 
 First, we consider the mean-field theory of the negative-$U$ Hubbard model and compare our QLT+QMC approach for this
-mean-field model against exact analytical results. Since the mean-field theory cannot capture fluctuations, the change of transport properties and the superconducting transition strictly coincide within mean-field theory. Hence, we anticipate the assessment of superconductivity within the QLT approach to coincide with the mean-field transition. To test this, we solve the self-consistent gap equations at  each inverse temperature $\beta$ to obtain the $s$-wave pairing gap $\Delta(\beta)$. We then sample via finite-temperature Monte Carlo simulations, using the corresponding BdG mean-field model with the respective $\Delta(\beta)$, and generate a Markov sequence of the quasi-particle occupation number, which is then fed into the QLT approach.
+mean-field model against exact analytical results. Since the mean-field theory cannot capture fluctuations, the change of transport properties and the superconducting transition strictly coincide within the mean-field theory. Hence, we anticipate the assessment of superconductivity within the QLT approach to coincide with the mean-field transition. To test this, we solve the self-consistent gap equations at  each inverse temperature $\beta$ to obtain the $s$-wave pairing gap $\Delta(\beta)$. We then sample via finite-temperature Monte Carlo simulations, using the corresponding BdG mean-field model with the respective $\Delta(\beta)$, and generate a Markov sequence of the quasi-particle occupation number, which is then fed into the QLT approach.
  The resulting phase diagram (for $U=-8$ and $\mu=-0.5$) is  shown in Fig.~\ref{fig:mlmft} where we used $\beta=0.3$ and $\beta=0.8$ as the high and low temperature training points, respectively. 
 Indeed, the QLT assessment of superconductivity shows a sharp onset at the mean-field superconducting transition.
 
@@ -262,7 +262,7 @@ Looking ahead, we anticipate that QLT+QMC will be even more valuable in detectin
 
 {\it Acknowledgements.--} 
 We acknowledge useful discussions with Erez Berg, Yi-Ting Hsu, and Hong Yao. YZ and E-AK acknowledge the support from the U.S. Department of Energy, Office of Basic Energy Sciences, Division of Materials Science and Engineering under Award DE-SC0018946.
-The Cologne group acknowledges partial support from the the Deutsche Forschungsgemeinschaft (DFG, German Research Foundation) -- Projektnummer 277101999 -- TRR 183 (project B01).
+The Cologne group acknowledges partial support from the Deutsche Forschungsgemeinschaft (DFG, German Research Foundation) -- Projektnummer 277101999 -- TRR 183 (project B01).
 The numerical simulations were performed on the JUWELS cluster at FZ J\"ulich and the CHEOPS cluster at RRZK Cologne.
 
 
